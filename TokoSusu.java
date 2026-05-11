@@ -1,69 +1,65 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package pbo;
+
 import java.util.*;
 
+/**
+ *
+ * @author AoBing
+ */
 public class TokoSusu {
-    public static void main(String[] args) {
+     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+         String nama;
+        double keaktifan, tugas, ujian;
+        double nKeaktifan, nTugas, nUjian, nilaiAkhir;
+        String grade;
 
-        char kodeSusu;
-        int kodeUkuran;
-        int harga = 0, jumlah, total;
-        String jenis = "", ukuran = "";
+        System.out.println("PROGRAM HITUNG NILAI AKHIR");
+        System.out.print("Nama Siswa : ");
+        nama = in.nextLine();
 
-        System.out.println("TOKO KELONTONG KERONCONGAN");
-        System.out.println("--------------------------");
-        System.out.println("A. Dancow");
-        System.out.println("B. Bendera");
-        System.out.println("C. SGM");
-        System.out.println("\nUkuran:");
-        System.out.println("1. Kecil");
-        System.out.println("2. Sedang");
-        System.out.println("3. Besar");
+        System.out.print("Nilai Keaktifan : ");
+        keaktifan = in.nextDouble();
 
-        System.out.print("\nMasukan Kode Susu [A/B/C] : ");
-        kodeSusu = in.next().charAt(0);
+        System.out.print("Nilai Tugas : ");
+        tugas = in.nextDouble();
 
-        System.out.print("Masukan Kode Ukuran [1/2/3] : ");
-        kodeUkuran = in.nextInt();
+        System.out.print("Nilai Ujian : ");
+        ujian = in.nextDouble();
 
-        switch (kodeSusu) {
-            case 'A':
-            case 'a':
-                jenis = "Dancow";
-                if (kodeUkuran == 1) { harga = 25000; ukuran = "Kecil"; }
-                else if (kodeUkuran == 2) { harga = 20000; ukuran = "Sedang"; }
-                else if (kodeUkuran == 3) { harga = 15000; ukuran = "Besar"; }
-                break;
+        nKeaktifan = keaktifan * 0.20;
+        nTugas = tugas * 0.30;
+        nUjian = ujian * 0.50;
 
-            case 'B':
-            case 'b':
-                jenis = "Bendera";
-                if (kodeUkuran == 1) { harga = 20000; ukuran = "Kecil"; }
-                else if (kodeUkuran == 2) { harga = 17500; ukuran = "Sedang"; }
-                else if (kodeUkuran == 3) { harga = 13500; ukuran = "Besar"; }
-                break;
+        nilaiAkhir = nKeaktifan + nTugas + nUjian;
 
-            case 'C':
-            case 'c':
-                jenis = "SGM";
-                if (kodeUkuran == 1) { harga = 22000; ukuran = "Kecil"; }
-                else if (kodeUkuran == 2) { harga = 18500; ukuran = "Sedang"; }
-                else if (kodeUkuran == 3) { harga = 15000; ukuran = "Besar"; }
-                break;
-
-            default:
-                System.out.println("Kode susu tidak valid!");
-                return;
+        if (nilaiAkhir >= 80) {
+            grade = "A";
+        } else if (nilaiAkhir >= 70) {
+            grade = "B";
+        } else if (nilaiAkhir >= 59) {
+            grade = "C";
+        } else if (nilaiAkhir >= 50) {
+            grade = "D";
+        } else {
+            grade = "E";
         }
 
-        System.out.println("Jenis Susu : " + jenis);
-        System.out.println("Ukuran : " + ukuran);
-        System.out.println("Harga Satuan : Rp. " + harga);
+        System.out.println("\n=== HASIL ===");
+        System.out.println("Siswa yang bernama " + nama);
+        System.out.println("Dengan Nilai Persentasi Yang dihasilkan:");
 
-        System.out.print("Jumlah beli : ");
-        jumlah = in.nextInt();
+        System.out.println("Nilai Keaktifan * 20% : " + nKeaktifan);
+        System.out.println("Nilai Tugas * 30% : " + nTugas);
+        System.out.println("Nilai Ujian * 50% : " + nUjian);
 
-        total = harga * jumlah;
+        System.out.println("\nJadi Siswa yang bernama " + nama +
+                " memperoleh nilai akhir sebesar " + nilaiAkhir);
 
-        System.out.println("\nTOTAL BAYAR = Rp. " + total);
+        System.out.println("Grade nilai yang didapat adalah " + grade);
     }
 }
